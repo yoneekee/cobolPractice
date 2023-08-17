@@ -1,0 +1,24 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. ARRAY_EXAMPLE.
+       AUTHOR. YONEE.
+
+       DATA DIVISION.
+       WORKING-STORAGE SECTION.
+       01 Numbers      PIC 9(3) OCCURS 5 TIMES.
+       05 Number    PIC 9(3).
+
+       PROCEDURE DIVISION.
+       PERFORM INITIALIZATION
+       PERFORM DISPLAY_ARRAY
+       STOP RUN.
+
+       INITIALIZATION.
+       PERFORM VARYING I FROM 1 BY 1 UNTIL I > 5
+           MOVE (I * 100) TO Number(I)
+       END-PERFORM.
+
+       DISPLAY_ARRAY.
+       DISPLAY "Array :"
+        PERFORM VARYING I FROM 1 BY 1 UNTIL I > 5
+           DISPLAY "Number(" I ") = " Number(I)
+       END-PERFORM.
