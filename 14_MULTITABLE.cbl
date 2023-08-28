@@ -1,0 +1,31 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. TAB1.
+       DATA DIVISION.
+       FILE SECTION.
+       WORKING-STORAGE SECTION.
+
+       01 WEEK-TABLE.
+       	05 DAY-NAME PIC X(10) OCCURS 7 TIMES.
+       01 I PIC 9(2) VALUE ZEROES.
+       01 TO-BE-FOUND PIC X(10) VALUE 'FRIDAY'.
+
+       PROCEDURE DIVISION.
+
+           MOVE 'MONDAY' TO DAY-NAME(1).
+           MOVE 'TUESDAY' TO DAY-NAME(2).
+           MOVE 'WEDNESDAY' TO DAY-NAME(3).
+           MOVE 'THURSDAY' TO DAY-NAME(4).
+           MOVE 'FRIDAY' TO DAY-NAME(5).
+           MOVE 'SUNDAY' TO DAY-NAME(6).
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 7
+           	DISPLAY DAY-NAME(I)
+           END-PERFORM.
+
+           PERFORM VARYING I FROM 1 BY 1 UNTIL I > 7
+           	IF DAY-NAME(I) = TO-BE-FOUND
+               	DISPLAY DAY-NAME(I)
+               END-IF
+           END-PERFORM.
+
+           STOP RUN.
